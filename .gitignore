@@ -1,0 +1,7 @@
+assets/
+backups/
+runtime/
+node_modules/
+*.log
+LOCAL-NOTES.md
+*.download

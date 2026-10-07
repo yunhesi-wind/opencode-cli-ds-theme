@@ -1,0 +1,17 @@
+{
+  "name": "opencode-cli-ds-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OpenCode V2 transparent theme and Windows Terminal global DS glass appearance",
+  "license": "MIT",
+  "repository": "https://github.com/yunhesi-wind/opencode-cli-ds-theme",
+  "scripts": {
+    "build-theme": "node build-theme.cjs",
+    "download-background": "node download-background.cjs",
+    "install-theme": "node install.cjs install",
+    "beautify-terminal": "node install.cjs enable-terminal",
+    "restore-theme": "node install.cjs restore",
+    "test": "node --test test/*.test.cjs"
+  },
+  "engines": { "node": ">=22.12.0" }
+}
