@@ -1,0 +1,8 @@
+{
+  "version": "2.0.32",
+  "commit": "d4a6223d017e17f1beaa91d3e6ecc6511c5132ad",
+  "path": "packages/tui/src/theme/assets/v2/opencode.json",
+  "sha256": "2673cbe2e68c6eb8ae5477f6f06fd1676331084385017acbd3f367107bebe9f1",
+  "releaseMetadata": "https://opencode.ai/update/api/latest/cli/npm",
+  "checked": "2026-10-17"
+}

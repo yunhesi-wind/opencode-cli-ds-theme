@@ -2,7 +2,8 @@
 
 ## 官方 V2 主题模板
 
-来源：anomalyco/opencode，提交 `32a67d2d0aae927d5cab5a471b43192cbff1199f`。
+来源：anomalyco/opencode，CLI 2.0.32 提交 `d4a6223d017e17f1beaa91d3e6ecc6511c5132ad`。
+模板与最初采用的 2.0.24 提交 `32a67d2d0aae927d5cab5a471b43192cbff1199f` 内容逐字节一致；来源及 SHA-256 记录于 `vendor/opencode-v2-source.json`。
 文件：`packages/tui/src/theme/assets/v2/opencode.json`。
 原 MIT 许可完整保留于 `vendor/OPENCODE-LICENSE`。
 本项目调整深蓝色阶、文字和语法颜色、透明背景、独立菜单与差异高亮底色；非 OpenCode 官方主题。

@@ -6,6 +6,28 @@ const { makeTheme, makeProfile, scheme } = require('../build-theme.cjs');
 const template = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'vendor', 'opencode-v2.json')));
 const generated = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'themes', 'ds-maid.json')));
 
+test('vendored template matches the recorded CLI 2.0.32 source hash', () => {
+  const crypto = require('node:crypto');
+  const source = require('../vendor/opencode-v2-source.json');
+  const bytes = fs.readFileSync(path.join(__dirname, '..', 'vendor', 'opencode-v2.json'));
+  assert.equal(source.version, '2.0.32');
+  assert.match(source.commit, /^[a-f0-9]{40}$/);
+  assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'), source.sha256);
+});
+
+test('generated theme retains every upstream base token including nested interaction states', () => {
+  function check(expected, actual, location = 'base') {
+    for (const [key, value] of Object.entries(expected)) {
+      assert.ok(Object.hasOwn(actual, key), 'Missing upstream token: ' + location + '.' + key);
+      if (value && typeof value === 'object' && !Array.isArray(value)) {
+        assert.equal(typeof actual[key], 'object', location + '.' + key);
+        check(value, actual[key], location + '.' + key);
+      }
+    }
+  }
+  check(template.base, generated.base);
+});
+
 test('generated theme matches its source generator and keeps all native base token groups', () => {
   assert.deepEqual(generated, makeTheme(template));
   assert.deepEqual(Object.keys(generated.base).sort(), Object.keys(template.base).sort());

@@ -10,6 +10,7 @@
 ## 兼容性
 
 - 本机验收：Windows、Windows Terminal 1.25、OpenCode CLI 2.0.24。
+- 最新适配检查：OpenCode V2 CLI **2.0.32**（2026-10-17）。官方模板与原 2.0.24 模板逐字节一致，已完成主题生成及离线测试；本机 CLI 仍为 2.0.24，2.0.32 的实际运行与视觉效果尚待升级后验收。
 - Node.js >=22.12；PowerShell、curl.exe；OpenCode CLI 必须在 PATH 中。
 - Mica 需要 Windows 11 build >=22621；其他系统可能退化为普通深色顶栏。
 - 传统 conhost 窗口不支持本项目的 Terminal 壁纸；请使用 Windows Terminal。
@@ -94,14 +95,22 @@ node install.cjs restore
 如果安装后又手动修改过配置，恢复会拒绝覆盖，需要先检查差异。
 重复安装会验证并跳过；主题源码变化时先恢复再安装。不要删除 `backups/` 或 `runtime/`。
 
+2.0.32 的官方模板和本项目生成主题未变化，已安装用户无需恢复或重装主题；CLI 自身的升级独立进行，不由本项目替换可执行文件。Terminal 配置有后续修改时也不要为版本适配强行恢复。
+
+## 维护与同步要求
+
+每次更新本项目后，更新 README、CHANGELOG 及必要的来源记录，运行 `node build-theme.cjs` 和 `npm test`，检查差异后仅提交相关源码、主题、测试和文档，推送到 `https://github.com/yunhesi-wind/opencode-cli-ds-theme`。不要上传素材、截图、个人配置、backups/runtime 或凭据。
+
+同时更新 `D:\project\AI_test\OpencodeSelfuse\README.md` 的 CLI 美化描述，只同步说明和链接，不向该仓库二次保存项目或重建副本目录。保留该仓库其他未提交改动，其提交／推送另行明确。完成后分别说明源码验证、实际运行验收和 GitHub 推送状态，失败时不可宣称已同步。
+
 ## 开发与验证
 
 无运行时 npm 依赖；`npm test` 不需要背景素材，也不连接模型或 MCP。
 测试覆盖完整 V2 token 树、颜色引用、独立及全局 profile 保留、安装／恢复及失败回退。
 真实视觉仍需在终端启动后验收，静态检查不等于所有设备效果保证。
 
-`vendor/opencode-v2.json` 来自官方 2.0.24 源码提交
-`32a67d2d0aae927d5cab5a471b43192cbff1199f`；生成器保留完整 `base/dark` 结构。
+`vendor/opencode-v2.json` 已核对官方 2.0.32 源码提交
+`d4a6223d017e17f1beaa91d3e6ecc6511c5132ad`，与原 2.0.24 模板逐字节一致；版本、来源路径和 SHA-256 见 `vendor/opencode-v2-source.json`。生成器保留完整 `base/dark` 结构。
 没有使用 V1 的 `defs/theme` 写法或把终端配置放入 `opencode.jsonc`。
 
 项目结构：`build-theme.cjs`、`themes/`、`install.cjs`、`tools/`、`test/`。
