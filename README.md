@@ -99,9 +99,11 @@ node install.cjs restore
 
 ## 维护与同步要求
 
-每次更新本项目后，更新 README、CHANGELOG 及必要的来源记录，运行 `node build-theme.cjs` 和 `npm test`，检查差异后仅提交相关源码、主题、测试和文档，推送到 `https://github.com/yunhesi-wind/opencode-cli-ds-theme`。不要上传素材、截图、个人配置、backups/runtime 或凭据。
+每次更新本项目后，更新 README、CHANGELOG 及必要的来源记录，运行 `node build-theme.cjs` 和 `npm test`。同时更新 `D:\project\AI_test\OpencodeSelfuse\README.md` 的 CLI 美化描述，只同步说明和链接，不向该仓库二次保存项目或重建副本目录。
 
-同时更新 `D:\project\AI_test\OpencodeSelfuse\README.md` 的 CLI 美化描述，只同步说明和链接，不向该仓库二次保存项目或重建副本目录。保留该仓库其他未提交改动，其提交／推送另行明确。完成后分别说明源码验证、实际运行验收和 GitHub 推送状态，失败时不可宣称已同步。
+确认验证完成且两处描述一致后，分别提交并推送本项目到 `https://github.com/yunhesi-wind/opencode-cli-ds-theme`、对应说明到 `https://github.com/yunhesi-wind/OpencodeSelfuse`。仅提交本次相关源码、主题、测试和文档，保留各仓库其他暂存或未暂存改动，不夹带无关内容。不要上传素材、截图、个人配置、backups/runtime 或凭据。
+
+CLI 主题与桌面主题独立更新，不要求另一个主题同时升级或保持相同 OpenCode 版本；纯描述更新不需要重新安装主题。完成后分别报告源码验证、实际运行验收及两个仓库的推送状态；各仓库提交并非原子操作，部分推送失败时明确说明并补推，不可宣称全部同步完成。
 
 ## 开发与验证
 
